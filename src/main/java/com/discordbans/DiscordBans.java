@@ -61,7 +61,12 @@ public class DiscordBans {
             throw new DiscordBansException("Failed to contact DiscordBans");
         }
     }
-    
+
+    /**
+     * @param id - The id of the guild (Discord Snowflake).
+     * @return BanGuild instance of this guild.
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans.
+     */
     public BanGuild getGuild(String id) throws DiscordBansException {
         try {
             HttpResponse<JsonNode> resp = Unirest.get("https://api.discordbans.com/getGuild")
@@ -76,7 +81,12 @@ public class DiscordBans {
             throw new DiscordBansException("Failed to contact DiscordBans");
         }
     }
-    
+
+    /**
+     * @param id - The id of the user (Discord Snowflake).
+     * @return BanUser instance of this user.
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans or if not found.
+     */
     public BanUser getUser(String id) throws DiscordBansException {
         try {
             HttpResponse<JsonNode> resp = Unirest.get("https://api.discordbans.com/getUser")
@@ -91,7 +101,12 @@ public class DiscordBans {
             throw new DiscordBansException("Failed to contact DiscordBans");
         }
     }
-    
+
+    /**
+     * @param uuid - The uuid of the comment.
+     * @return BanComment instance of this comment.
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans or if not found.
+     */
     public BanComment getComment(String uuid) throws DiscordBansException {
         try {
             HttpResponse<JsonNode> resp = Unirest.get("https://api.discordbans.com/getComment")
@@ -138,7 +153,13 @@ public class DiscordBans {
         }
         return comments;
     }
-    
+
+    /**
+     * @param id - The id to get the reports for.
+     * @param type - The type (USER or GUILD).
+     * @return List<BanReport> with all the reports for the given id and type.
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans.
+     */
     public List<BanReport> getReports(String id, Type type) throws DiscordBansException {
         try {
             Long.valueOf(id);
@@ -172,7 +193,16 @@ public class DiscordBans {
         }
         return reports;
     }
-    
+
+    /**
+     * @param id - The id to report.
+     * @param type - The type (USER or GUILD).
+     * @param reason - The reason for reporting.
+     * @param guild - The guild where this report is originating (null for none).
+     * @param submitter - The user id of the person who is submitting this report. (null for default)
+     * @return BanReport instance of this report.
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans.
+     */
     public BanReport addReport(String id, Type type, String reason, Long guild, BanUser submitter) throws DiscordBansException {
         try {
             MultipartBody mpBody = Unirest.post("https://api.discordbans.com/addReport")
@@ -202,19 +232,48 @@ public class DiscordBans {
             throw new DiscordBansException("Failed to contact DiscordBans");
         }
     }
-    
+
+    /**
+     * @param id - The id to report.
+     * @param type - The type (USER or GUILD).
+     * @param reason - The reason for reporting.
+     * @param guild - The guild where this report is originating (null for none).
+     * @return BanReport instance of this report.
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans.
+     */
     public BanReport addReport(String id, Type type, String reason, Long guild) throws DiscordBansException {
         return addReport(id, type, reason, guild, null);
     }
-    
+
+    /**
+     * @param id - The id to report.
+     * @param type - The type (USER or GUILD).
+     * @param reason - The reason for reporting.
+     * @param submitter - The user id of the person who is submitting this report. (null for default)
+     * @return BanReport instance of this report.
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans.
+     */
     public BanReport addReport(String id, Type type, String reason, BanUser submitter) throws DiscordBansException {
         return addReport(id, type, reason, null, submitter);
     }
-    
+
+    /**
+     * @param id - The id to report.
+     * @param type - The type (USER or GUILD).
+     * @param reason - The reason for reporting.
+     * @return BanReport instance of this report.
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans.
+     */
     public BanReport addReport(String id, Type type, String reason) throws DiscordBansException {
         return addReport(id, type, reason, null, null);
     }
-    
+
+    /**
+     * @param id - The id to check.
+     * @param type - User or Guild
+     * @return true if this user/guild is considered banned.
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans.
+     */
     public Boolean isBanned(String id, Type type) throws DiscordBansException {
         try {
             HttpResponse<JsonNode> resp = Unirest.get("https://api.discordbans.com/isBanned")
@@ -230,7 +289,13 @@ public class DiscordBans {
             throw new DiscordBansException("Failed to contact DiscordBans");
         }
     }
-    
+
+    /**
+     * @param uuid - The uuid of the report.
+     * @param content - The content of the comment.
+     * @return List<BanComment> with all comments for this report (including the new one).
+     * @throws DiscordBansException - If any error occurs while contacting DiscordBans.
+     */
     public List<BanComment> addComment(String uuid, String content) throws DiscordBansException {
         try {
             HttpResponse<JsonNode> resp = Unirest.get("https://api.discordbans.com/addComment")
