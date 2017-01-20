@@ -6,7 +6,7 @@
 
     <groupId>com.discordbans</groupId>
     <artifactId>API</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1_${build.number}-SNAPSHOT</version>
     <packaging>jar</packaging>
     
     <name>DiscordBans-API</name>
@@ -29,7 +29,7 @@
     </distributionManagement>
     
     <build>
-        <finalName>API-${project.version}-${build.number}</finalName>
+        <finalName>API-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
