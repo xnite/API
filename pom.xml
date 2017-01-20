@@ -7,6 +7,12 @@
     <groupId>com.discordbans</groupId>
     <artifactId>API</artifactId>
     <version>0.1</version>
+    <packaging>jar</packaging>
+    
+    <name>DiscordBans-API</name>
+    <description>Java API for DiscordBans</description>
+    <url>https://github.com/DiscordBans/API</url>
+    
     <build>
         <plugins>
             <plugin>
