@@ -22,7 +22,7 @@
     </properties>
     
     <build>
-        <finalName>LewdBot-${project.version}-${build.number}</finalName>
+        <finalName>API-${project.version}-${build.number}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
