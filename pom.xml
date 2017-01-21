@@ -13,6 +13,29 @@
     <description>Java API for DiscordBans</description>
     <url>https://github.com/DiscordBans/API</url>
 
+    <scm>
+        <url>https://github.com/DiscordBans/API</url>
+        <connection>scm:git:git://github.com/DiscordBans/API.git</connection>
+        <developerConnection>scm:git:git@github.com:DiscordBans/API.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <email>fab@notfab.net</email>
+            <name>Fabricio Winter</name>
+            <url>https://github.com/Fabricio20</url>
+            <id>Fabricio20</id>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE 3</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
