@@ -26,10 +26,10 @@
             <id>Snapshots</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
-        <snapshotRepository>
+        <repository>
             <id>Releases</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </snapshotRepository>
+        </repository>
     </distributionManagement>
     
     <build>
