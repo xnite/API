@@ -87,6 +87,11 @@
             <artifactId>unirest-java</artifactId>
             <version>1.4.9</version>
         </dependency>
+        <dependency>
+            <groupId>net.jodah</groupId>
+            <artifactId>ExpiringMap</artifactId>
+            <version>0.5.7</version>
+        </dependency>
     </dependencies>
 
 </project>
