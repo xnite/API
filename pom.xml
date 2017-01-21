@@ -89,7 +89,7 @@
         </dependency>
         <dependency>
             <groupId>net.jodah</groupId>
-            <artifactId>ExpiringMap</artifactId>
+            <artifactId>expiringmap</artifactId>
             <version>0.5.7</version>
         </dependency>
     </dependencies>
