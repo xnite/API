@@ -4,7 +4,7 @@
 Java API for Discord Bans
 
 ## What is Discord Bans?
-Discord Bans is a centralized discord ban management system.
+Discord Bans is a centralized Discord ban management system.
 
 ## Current Status
 The service is up and running, however, this API is under reconstruction.
@@ -38,7 +38,7 @@ public class DiscordBansListener extends ListenerAdapter {
         Guild guild = event.getGuild();
         User admin = finalAuditLog.getUser();
         User victim = event.getUser();
-        new Thread(() -> { // ASYNC running is advised (Pls use a proper ThreadPool)
+        new Thread(() -> { // ASYNC running is advised (Please use a proper ThreadPool)
             JSONObject rawBody = new JSONObject();
             rawBody.put("reason", finalAuditLog.getReason());
             rawBody.put("user", new JSONObject().put("id", victim.getIdLong()).put("name", victim.getName()));
